@@ -1,0 +1,6 @@
+@Trackfinder.Api_HostAddress = http://localhost:5287
+
+GET {{Trackfinder.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
