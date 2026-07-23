@@ -33,4 +33,26 @@ public class EncounterService : IEncounterService
         };
         return dto;
     }
+
+    public async Task<List<EncounterDto>> GetAllEncountersAsync()
+    {
+        return await _context.Encounters.Include(e => e.Monsters).ThenInclude(m => m.Template).Select(e => new EncounterDto
+        {
+            Id = e.Id,
+            Name = e.Name,
+            CurrentRound = e.CurrentRound,
+            ActiveMonsterId = e.ActiveEncounterId,
+            Monsters = e.Monsters.Select(m => new ActiveMonsterDto
+            {
+                Id = m.Id,
+                Init = m.Init,
+                CurrentHp = m.CurrentHp,
+                IsPlayer = m.IsPlayer,
+                CustomName = m.Name,
+                BaseName = m.Template.BaseName,
+                MaxHp = m.Template.maxHp,
+                Ac = m.Template.Ac
+            }).ToList()
+        }).ToListAsync();
+    }
 }
