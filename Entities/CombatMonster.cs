@@ -12,4 +12,6 @@ public class CombatMonster
 
     public int EncounterId {get; set;}
     public Encounter Encounter {get; set;} = null!;
+
+    public bool IsPlayer {get;set;}
 }
