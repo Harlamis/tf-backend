@@ -14,4 +14,6 @@ public class CombatMonster
     public Encounter Encounter {get; set;} = null!;
 
     public bool IsPlayer {get;set;}
+
+    public String? Name {get;set;}
 }
