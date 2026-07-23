@@ -4,6 +4,8 @@ public class CombatMonster
 
     public string TemplateId {get; set;}
 
+    public MonsterTemplate Template {get; set;}
+
     public int CurrentHp {get; set;}
 
     public int Init {get; set;}

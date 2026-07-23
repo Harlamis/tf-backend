@@ -9,4 +9,5 @@ public class MonsterTemplate
     public int Ac {get; set;}
 
     public String? DetailsJson {get; set;}
+
 }

@@ -24,6 +24,8 @@ public class ApplicationDbContext : DbContext
         {
             entity.HasOne(m => m.Encounter).WithMany(e => e.Monsters).HasForeignKey(m => m.EncounterId).OnDelete(DeleteBehavior.Cascade);
 
+            entity.HasOne(m => m.Template).WithMany().HasForeignKey(m => m.TemplateId).OnDelete(DeleteBehavior.Restrict);
+
             entity.Property(m => m.TemplateId)
                 .IsRequired()
                 .HasMaxLength(50);            
