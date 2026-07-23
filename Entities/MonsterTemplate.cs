@@ -1,8 +1,8 @@
 public class MonsterTemplate
 {
-    public String Id {get; set;}
+    public String Id {get; set;} = null!;
 
-    public String BaseName {get;set;}
+    public String BaseName {get;set;} = null!;
 
     public int maxHp {get;set;}
 
