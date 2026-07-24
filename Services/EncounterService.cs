@@ -66,4 +66,14 @@ public class EncounterService : IEncounterService
 
         return encounter.Id;
     }
+
+    public async Task UpdateEncounterAsync(UpdateEncounterDto dto)
+    {
+        var original = await _context.Encounters.FirstOrDefaultAsync(e => e.Id == dto.Id);
+        if (original == null) return;
+        original.Name = dto.Name ?? original.Name;
+        original.ActiveMonsterId = dto.ActiveMonsterId ?? original.ActiveMonsterId;
+        original.CurrentRound = dto.CurrentRound ?? original.CurrentRound;
+        await _context.SaveChangesAsync();
+    }
 }
