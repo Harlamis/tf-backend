@@ -6,7 +6,11 @@ public class CombatMonster
 
     public MonsterTemplate Template {get; set;} = null!;
 
-    public int CurrentHp {get; set;}
+    public int CurrentHp { get; set; }
+    
+    public int MaxHp { get; set; }
+
+    public int Ac { get; set; }
 
     public int Init {get; set;}
 
@@ -15,5 +19,5 @@ public class CombatMonster
 
     public bool IsPlayer {get;set;}
 
-    public String? Name {get;set;}
+    public String? Name { get; set; }
 }
