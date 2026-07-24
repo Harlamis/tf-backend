@@ -55,4 +55,15 @@ public class EncounterService : IEncounterService
             }).ToList()
         }).ToListAsync();
     }
+
+    public async Task<int> CreateEncounterAsync(CreateEncounterDto dto)
+    {
+        Encounter encounter = new Encounter { CurrentRound = 1, ActiveEncounterId = null, Monsters = [], Name = dto.Name };
+
+        _context.Encounters.Add(encounter);
+
+        await _context.SaveChangesAsync();
+
+        return encounter.Id;
+    }
 }
