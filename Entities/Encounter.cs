@@ -6,7 +6,7 @@ public class Encounter
 
     public int CurrentRound {get; set;}
 
-    public int? ActiveEncounterId {get; set;}
+    public int? ActiveMonsterId {get; set;}
 
     public List<CombatMonster> Monsters {get; set;} = [];
 }

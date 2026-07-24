@@ -18,7 +18,7 @@ public class EncounterService : IEncounterService
             Id = encounter.Id,
             Name = encounter.Name,
             CurrentRound = encounter.CurrentRound,
-            ActiveMonsterId = encounter.ActiveEncounterId,
+            ActiveMonsterId = encounter.ActiveMonsterId,
             Monsters = encounter.Monsters.Select(m => new ActiveMonsterDto
             {
                 Id = m.Id,
@@ -41,7 +41,7 @@ public class EncounterService : IEncounterService
             Id = e.Id,
             Name = e.Name,
             CurrentRound = e.CurrentRound,
-            ActiveMonsterId = e.ActiveEncounterId,
+            ActiveMonsterId = e.ActiveMonsterId,
             Monsters = e.Monsters.Select(m => new ActiveMonsterDto
             {
                 Id = m.Id,
@@ -58,7 +58,7 @@ public class EncounterService : IEncounterService
 
     public async Task<int> CreateEncounterAsync(CreateEncounterDto dto)
     {
-        Encounter encounter = new Encounter { CurrentRound = 1, ActiveEncounterId = null, Monsters = [], Name = dto.Name };
+        Encounter encounter = new Encounter { CurrentRound = 1, ActiveMonsterId = null, Monsters = [], Name = dto.Name };
 
         _context.Encounters.Add(encounter);
 
