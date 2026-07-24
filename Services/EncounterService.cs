@@ -76,4 +76,12 @@ public class EncounterService : IEncounterService
         original.CurrentRound = dto.CurrentRound ?? original.CurrentRound;
         await _context.SaveChangesAsync();
     }
+
+    public async Task DeleteEncounterAsync(int id)
+    {
+        var target = await _context.Encounters.FirstOrDefaultAsync(e => e.Id == id);
+        if (target == null) return;
+        _context.Encounters.Remove(target);
+        await _context.SaveChangesAsync();
+    }
 }

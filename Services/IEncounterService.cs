@@ -8,4 +8,6 @@ public interface IEncounterService
 
     public Task UpdateEncounterAsync(UpdateEncounterDto dto);
 
+    public Task DeleteEncounterAsync(int id);
+
 }
