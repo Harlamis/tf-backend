@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 [ApiController]
 [Route("api/v1/encounters")]
@@ -35,5 +36,12 @@ public class EncounterController : ControllerBase
         // return Ok(await _service.CreateEncounterAsync(dto));
         var newId = await _service.CreateEncounterAsync(dto);
         return CreatedAtAction(nameof(GetById), new { id = newId }, newId);
+    }
+
+    [HttpPatch]
+    public async Task<ActionResult> Update(UpdateEncounterDto dto)
+    {
+        await _service.UpdateEncounterAsync(dto);
+        return Ok();
     }
 }
