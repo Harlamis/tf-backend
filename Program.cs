@@ -12,6 +12,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IEncounterService, EncounterService>();
 builder.Services.AddScoped<IMonsterTemplateService, MonsterTemplateService>();
 builder.Services.AddControllers();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000", "http://localhost:5173").AllowAnyHeader().AllowAnyMethod();
+    });
+});
 
 // Add Swagger/OpenAPI services.
 builder.Services.AddEndpointsApiExplorer();
@@ -40,6 +47,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("AllowReactApp");
 
 app.MapControllers();
 
