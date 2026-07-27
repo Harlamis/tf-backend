@@ -28,7 +28,8 @@ public class EncounterService : IEncounterService
                 CustomName = m.Name,
                 BaseName = m.Template.BaseName,
                 MaxHp = m.Template.maxHp,
-                Ac = m.Template.Ac
+                Ac = m.Template.Ac,
+                JsonDetails = m.Template.DetailsJson
             }).ToList()
         };
         return dto;
@@ -51,7 +52,8 @@ public class EncounterService : IEncounterService
                 CustomName = m.Name,
                 BaseName = m.Template.BaseName,
                 MaxHp = m.Template.maxHp,
-                Ac = m.Template.Ac
+                Ac = m.Template.Ac,
+                JsonDetails = m.Template.DetailsJson
             }).ToList()
         }).ToListAsync();
     }
@@ -115,7 +117,8 @@ public class EncounterService : IEncounterService
             Ac = newMonster.Ac,
             IsPlayer = newMonster.IsPlayer,
             BaseName = template.BaseName,
-            CustomName = newMonster.Name
+            CustomName = newMonster.Name,
+            JsonDetails = template.DetailsJson
         };
     }
 }
