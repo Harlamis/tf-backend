@@ -42,13 +42,13 @@ public class EncounterController : ControllerBase
     public async Task<ActionResult> Update(UpdateEncounterDto dto)
     {
         bool isUpdated = await _service.UpdateEncounterAsync(dto);
-        return isUpdated ? Ok() : NotFound();
+        return isUpdated ? NoContent() : NotFound();
     }
 
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {
         await _service.DeleteEncounterAsync(id);
-        return Ok();
+        return NoContent();
     }
 }
