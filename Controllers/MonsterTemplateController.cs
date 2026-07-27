@@ -16,4 +16,14 @@ public class MonsterTemplateController : ControllerBase
     {
         _service = service;
     }
+
+    /// <summary>
+    /// Returns all Templates
+    /// </summary>
+    [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<MonsterTemplateDto>))]
+    public async Task<ActionResult<List<MonsterTemplateDto>>> GetAll()
+    {
+        return Ok(await _service.GetAllTemplatesAsync());
+    }
 }

@@ -10,6 +10,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
 builder.Services.AddScoped<IEncounterService, EncounterService>();
+builder.Services.AddScoped<IMonsterTemplateService, MonsterTemplateService>();
 builder.Services.AddControllers();
 
 // Add Swagger/OpenAPI services.
