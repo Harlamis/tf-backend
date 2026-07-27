@@ -9,6 +9,8 @@ public class ApplicationDbContext : DbContext
     public DbSet<Encounter> Encounters { get; set; } = null!;
     public DbSet<CombatMonster> CombatMonsters { get; set; } = null!;
 
+    public DbSet<MonsterTemplate> Templates { get; set; } = null!;
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
