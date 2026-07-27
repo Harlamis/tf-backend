@@ -51,4 +51,11 @@ public class EncounterController : ControllerBase
         await _service.DeleteEncounterAsync(id);
         return NoContent();
     }
+
+    [HttpPost("monsters")]
+    public async Task<ActionResult<int>> AddMonster(AddMonsterToEncounterDto dto)
+    {
+        var newId = await _service.AddMonsterToEncounterAsync(dto);
+        return Ok(newId);
+    }
 }
