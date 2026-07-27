@@ -58,4 +58,11 @@ public class EncounterController : ControllerBase
         var newId = await _service.AddMonsterToEncounterAsync(dto);
         return Ok(newId);
     }
+
+    [HttpPatch("monsters")]
+    public async Task<ActionResult> UpdateMonster(UpdateMonsterDto dto)
+    {
+        bool isUpdated = await _service.UpdateMonsterAsync(dto);
+        return isUpdated ? NoContent() : NotFound();
+    }
 }
