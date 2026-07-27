@@ -19,6 +19,7 @@ public class EncounterController : ControllerBase
         return Ok(encounters);
     }
     [HttpGet("{id}")]
+
     public async Task<ActionResult<EncounterDto>> GetById(int id)
     {
         var encounter = await _service.GetEncounterByIdAsync(id);
@@ -26,5 +27,13 @@ public class EncounterController : ControllerBase
         if (encounter == null) return NotFound();
 
         return Ok(encounter);
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<int>> Create(CreateEncounterDto dto)
+    {
+        // return Ok(await _service.CreateEncounterAsync(dto));
+        var newId = await _service.CreateEncounterAsync(dto);
+        return CreatedAtAction(nameof(GetById), new { id = newId }, newId);
     }
 }
