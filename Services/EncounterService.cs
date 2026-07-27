@@ -121,4 +121,19 @@ public class EncounterService : IEncounterService
             JsonDetails = template.DetailsJson
         };
     }
+
+    public async Task UpdateMonsterAsync(UpdateMonsterDto dto)
+    {
+        var original = await _context.CombatMonsters.FirstOrDefaultAsync(m => m.Id == dto.Id);
+
+        if (original == null) return;
+
+        original.Ac = dto.Ac ?? original.Ac;
+        original.CurrentHp = dto.CurrentHp ?? original.CurrentHp;
+        original.Init = dto.Init ?? original.Init;
+        original.MaxHp = dto.MaxHp ?? original.MaxHp;
+        original.Name = dto.CustomName ?? original.Name;
+        original.IsPlayer = dto.IsPlayer ?? original.IsPlayer;
+        await _context.SaveChangesAsync();
+    }
 }

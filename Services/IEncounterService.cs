@@ -12,4 +12,6 @@ public interface IEncounterService
 
     public Task<ActiveMonsterDto?> AddMonsterToEncounterAsync(AddMonsterToEncounterDto dto);
 
+    public Task UpdateMonsterAsync(UpdateMonsterDto dto);
+
 }
