@@ -65,4 +65,11 @@ public class EncounterController : ControllerBase
         bool isUpdated = await _service.UpdateMonsterAsync(dto);
         return isUpdated ? NoContent() : NotFound();
     }
+
+    [HttpDelete("monsters/{id}")]
+    public async Task<ActionResult> DeleteMonster(int id)
+    {
+        await _service.DeleteMonsterAsync(id);
+        return Ok();
+    }
 }
