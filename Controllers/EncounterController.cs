@@ -94,6 +94,7 @@ public class EncounterController : ControllerBase
     [HttpPost("monsters")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ActiveMonsterDto))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ActiveMonsterDto>> AddMonster([FromBody] AddMonsterToEncounterDto dto)
     {
         var newMonster = await _service.AddMonsterToEncounterAsync(dto);
