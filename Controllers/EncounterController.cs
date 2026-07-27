@@ -12,10 +12,19 @@ public class EncounterController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<EncounterDto>> GetAll()
+    public async Task<ActionResult<List<EncounterDto>>> GetAll()
     {
         var encounters = await _service.GetAllEncountersAsync();
 
         return Ok(encounters);
+    }
+    [HttpGet("{id}")]
+    public async Task<ActionResult<EncounterDto>> GetById(int id)
+    {
+        var encounter = await _service.GetEncounterByIdAsync(id);
+
+        if (encounter == null) return NotFound();
+
+        return Ok(encounter);
     }
 }
