@@ -81,10 +81,12 @@ public class EncounterService : IEncounterService
 
     public async Task DeleteEncounterAsync(int id)
     {
-        var target = await _context.Encounters.FirstOrDefaultAsync(e => e.Id == id);
-        if (target == null) return;
-        _context.Encounters.Remove(target);
-        await _context.SaveChangesAsync();
+        // var target = await _context.Encounters.FirstOrDefaultAsync(e => e.Id == id);
+        // if (target == null) return;
+        // _context.Encounters.Remove(target);
+        // await _context.SaveChangesAsync();
+
+        await _context.Encounters.Where(e => e.Id == id).ExecuteDeleteAsync();
     }
 
     public async Task<ActiveMonsterDto?> AddMonsterToEncounterAsync(AddMonsterToEncounterDto dto)
