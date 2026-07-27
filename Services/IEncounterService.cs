@@ -6,7 +6,7 @@ public interface IEncounterService
 
     public Task<int> CreateEncounterAsync(CreateEncounterDto dto);
 
-    public Task UpdateEncounterAsync(UpdateEncounterDto dto);
+    public Task<bool> UpdateEncounterAsync(UpdateEncounterDto dto);
 
     public Task DeleteEncounterAsync(int id);
 

@@ -41,8 +41,8 @@ public class EncounterController : ControllerBase
     [HttpPatch]
     public async Task<ActionResult> Update(UpdateEncounterDto dto)
     {
-        await _service.UpdateEncounterAsync(dto);
-        return Ok();
+        bool isUpdated = await _service.UpdateEncounterAsync(dto);
+        return isUpdated ? Ok() : NotFound();
     }
 
     [HttpDelete("{id}")]
