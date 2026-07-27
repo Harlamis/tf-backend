@@ -10,4 +10,6 @@ public interface IEncounterService
 
     public Task DeleteEncounterAsync(int id);
 
+    public Task<ActiveMonsterDto?> AddMonsterToEncounterAsync(AddMonsterToEncounterDto dto);
+
 }

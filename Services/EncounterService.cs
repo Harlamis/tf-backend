@@ -84,4 +84,38 @@ public class EncounterService : IEncounterService
         _context.Encounters.Remove(target);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<ActiveMonsterDto?> AddMonsterToEncounterAsync(AddMonsterToEncounterDto dto)
+    {
+        var template = await _context.Templates.FirstOrDefaultAsync(t => t.Id == dto.TemplateId);
+
+        if (template == null) return null;
+
+        CombatMonster newMonster = new CombatMonster
+        {
+            CurrentHp = template.maxHp,
+            MaxHp = template.maxHp,
+            Init = 0,
+            TemplateId = template.Id,
+            Ac = template.Ac,
+            EncounterId = dto.EncounterId,
+            IsPlayer = false,
+        };
+
+        _context.CombatMonsters.Add(newMonster);
+
+        await _context.SaveChangesAsync();
+
+        return new ActiveMonsterDto
+        {
+            Id = newMonster.Id,
+            Init = newMonster.Init,
+            CurrentHp = newMonster.CurrentHp,
+            MaxHp = newMonster.MaxHp,
+            Ac = newMonster.Ac,
+            IsPlayer = newMonster.IsPlayer,
+            BaseName = template.BaseName,
+            CustomName = newMonster.Name
+        };
+    }
 }

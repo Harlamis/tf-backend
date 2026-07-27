@@ -14,5 +14,7 @@ public record ActiveMonsterDto
 
     public string? CustomName {get;set;}
 
-    public bool IsPlayer {get;set;}
+    public bool IsPlayer { get; set; }
+    
+    public string? JsonDetails { get; set; }
 }
