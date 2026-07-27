@@ -1,13 +1,13 @@
 public class MonsterTemplate
 {
-    public String Id {get; set;} = null!;
+    public String Id { get; set; } = null!;
 
-    public String BaseName {get;set;} = null!;
+    public String BaseName { get; set; } = null!;
 
-    public int maxHp {get;set;}
+    public int MaxHp { get; set; }
 
-    public int Ac {get; set;}
+    public int Ac { get; set; }
 
-    public String? DetailsJson {get; set;}
+    public String? DetailsJson { get; set; }
 
 }

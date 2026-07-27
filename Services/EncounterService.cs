@@ -27,7 +27,7 @@ public class EncounterService : IEncounterService
                 IsPlayer = m.IsPlayer,
                 CustomName = m.Name,
                 BaseName = m.Template.BaseName,
-                MaxHp = m.Template.maxHp,
+                MaxHp = m.Template.MaxHp,
                 Ac = m.Template.Ac,
                 JsonDetails = m.Template.DetailsJson
             }).ToList()
@@ -51,7 +51,7 @@ public class EncounterService : IEncounterService
                 IsPlayer = m.IsPlayer,
                 CustomName = m.Name,
                 BaseName = m.Template.BaseName,
-                MaxHp = m.Template.maxHp,
+                MaxHp = m.Template.MaxHp,
                 Ac = m.Template.Ac,
                 JsonDetails = m.Template.DetailsJson
             }).ToList()
@@ -97,8 +97,8 @@ public class EncounterService : IEncounterService
 
         CombatMonster newMonster = new CombatMonster
         {
-            CurrentHp = template.maxHp,
-            MaxHp = template.maxHp,
+            CurrentHp = template.MaxHp,
+            MaxHp = template.MaxHp,
             Init = 0,
             TemplateId = template.Id,
             Ac = template.Ac,
