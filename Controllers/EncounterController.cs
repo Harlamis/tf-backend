@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 
+namespace Trackfinder.Api.Controllers;
+
 [ApiController]
 [Route("api/v1/encounters")]
 public class EncounterController : ControllerBase
