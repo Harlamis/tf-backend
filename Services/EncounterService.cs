@@ -125,11 +125,11 @@ public class EncounterService : IEncounterService
         };
     }
 
-    public async Task UpdateMonsterAsync(UpdateMonsterDto dto)
+    public async Task<bool> UpdateMonsterAsync(UpdateMonsterDto dto)
     {
         var original = await _context.CombatMonsters.FirstOrDefaultAsync(m => m.Id == dto.Id);
 
-        if (original == null) return;
+        if (original == null) return false;
 
         original.Ac = dto.Ac ?? original.Ac;
         original.CurrentHp = dto.CurrentHp ?? original.CurrentHp;
@@ -138,6 +138,7 @@ public class EncounterService : IEncounterService
         original.Name = dto.CustomName ?? original.Name;
         original.IsPlayer = dto.IsPlayer ?? original.IsPlayer;
         await _context.SaveChangesAsync();
+        return true;
     }
 
     public async Task DeleteMonsterAsync(int id)
