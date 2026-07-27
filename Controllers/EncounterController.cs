@@ -53,10 +53,10 @@ public class EncounterController : ControllerBase
     }
 
     [HttpPost("monsters")]
-    public async Task<ActionResult<int>> AddMonster(AddMonsterToEncounterDto dto)
+    public async Task<ActionResult<ActiveMonsterDto>> AddMonster(AddMonsterToEncounterDto dto)
     {
-        var newId = await _service.AddMonsterToEncounterAsync(dto);
-        return Ok(newId);
+        var newMonster = await _service.AddMonsterToEncounterAsync(dto);
+        return Ok(newMonster);
     }
 
     [HttpPatch("monsters")]
