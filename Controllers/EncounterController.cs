@@ -97,6 +97,9 @@ public class EncounterController : ControllerBase
     public async Task<ActionResult<ActiveMonsterDto>> AddMonster([FromBody] AddMonsterToEncounterDto dto)
     {
         var newMonster = await _service.AddMonsterToEncounterAsync(dto);
+
+        if (newMonster == null) return NotFound($"Could not find template with TemplateId: {dto.TemplateId}");
+
         return Ok(newMonster);
     }
 
