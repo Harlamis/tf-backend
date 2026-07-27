@@ -44,4 +44,11 @@ public class EncounterController : ControllerBase
         await _service.UpdateEncounterAsync(dto);
         return Ok();
     }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> Delete(int id)
+    {
+        await _service.DeleteEncounterAsync(id);
+        return Ok();
+    }
 }
