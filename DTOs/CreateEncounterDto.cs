@@ -1,3 +1,10 @@
+/// <summary>
+/// Request payload to create a new encounter.
+/// </summary>
 public record CreateEncounterDto
-{    public String Name {get;set;} = null!;
+{
+    /// <summary>
+    /// The name of the encounter.
+    /// </summary>
+    public string Name { get; set; } = null!;
 }
