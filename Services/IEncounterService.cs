@@ -14,4 +14,6 @@ public interface IEncounterService
 
     public Task UpdateMonsterAsync(UpdateMonsterDto dto);
 
+    public Task DeleteMonsterAsync(int id);
+
 }

@@ -136,4 +136,9 @@ public class EncounterService : IEncounterService
         original.IsPlayer = dto.IsPlayer ?? original.IsPlayer;
         await _context.SaveChangesAsync();
     }
+
+    public async Task DeleteMonsterAsync(int id)
+    {
+        await _context.CombatMonsters.Where(m => m.Id == id).ExecuteDeleteAsync();
+    }
 }
