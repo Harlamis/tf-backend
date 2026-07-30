@@ -34,6 +34,11 @@ public record ActiveMonsterDto
     public string BaseName { get; set; } = null!;
 
     /// <summary>
+    /// Base template Id.
+    /// </summary>
+    public string TemplateId { get; set; } = null!;
+
+    /// <summary>
     /// Optional custom name for the monster.
     /// </summary>
     public string? CustomName { get; set; }

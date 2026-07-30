@@ -27,6 +27,7 @@ public class EncounterService : IEncounterService
                 IsPlayer = m.IsPlayer,
                 CustomName = m.Name,
                 BaseName = m.Template.BaseName,
+                TemplateId = m.TemplateId,
                 MaxHp = m.Template.MaxHp,
                 Ac = m.Template.Ac,
                 JsonDetails = m.Template.DetailsJson
@@ -51,6 +52,7 @@ public class EncounterService : IEncounterService
                 IsPlayer = m.IsPlayer,
                 CustomName = m.Name,
                 BaseName = m.Template.BaseName,
+                TemplateId = m.TemplateId,
                 MaxHp = m.Template.MaxHp,
                 Ac = m.Template.Ac,
                 JsonDetails = m.Template.DetailsJson
@@ -105,6 +107,7 @@ public class EncounterService : IEncounterService
             Ac = template.Ac,
             EncounterId = dto.EncounterId,
             IsPlayer = false,
+            Name = template.BaseName
         };
 
         _context.CombatMonsters.Add(newMonster);
