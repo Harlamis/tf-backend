@@ -28,8 +28,8 @@ public class EncounterService : IEncounterService
                 CustomName = m.Name,
                 BaseName = m.Template.BaseName,
                 TemplateId = m.TemplateId,
-                MaxHp = m.Template.MaxHp,
-                Ac = m.Template.Ac,
+                MaxHp = m.MaxHp,
+                Ac = m.Ac,
                 JsonDetails = m.Template.DetailsJson
             }).ToList()
         };
@@ -53,8 +53,8 @@ public class EncounterService : IEncounterService
                 CustomName = m.Name,
                 BaseName = m.Template.BaseName,
                 TemplateId = m.TemplateId,
-                MaxHp = m.Template.MaxHp,
-                Ac = m.Template.Ac,
+                MaxHp = m.MaxHp,
+                Ac = m.Ac,
                 JsonDetails = m.Template.DetailsJson
             }).ToList()
         }).ToListAsync();
