@@ -49,7 +49,7 @@ public class ApplicationDbContext : DbContext
                 { "name": "Pincer", "type": "melee", "bonus": 6, "traits": ["agile", "finesse"] }
               ],
               "loot": [
-                { "item": "Mudcrab Chitin", "quantity": 1 }
+                { "name": "Mudcrab Chitin", "quantity": 1 }
               ]
             }
             """
@@ -80,8 +80,8 @@ public class ApplicationDbContext : DbContext
                 { "name": "Ebony Greatsword", "type": "melee", "bonus": 14, "traits": ["reach", "sweep"] }
               ],
               "loot": [
-                { "item": "Bone Meal", "quantity": 2 },
-                { "item": "Ebony Greatsword", "quantity": 1 }
+                { "name": "Bone Meal", "quantity": 2 },
+                { "name": "Ebony Greatsword", "quantity": 1 }
               ]
             }
             """
@@ -113,8 +113,8 @@ public class ApplicationDbContext : DbContext
                 { "name": "Fire Breath", "type": "ranged", "bonus": 20, "traits": ["magical", "fire"] }
               ],
               "loot": [
-                { "item": "Dragon Scales", "quantity": 5 },
-                { "item": "Dragon Bone", "quantity": 3 }
+                { "name": "Dragon Scales", "quantity": 5 },
+                { "name": "Dragon Bone", "quantity": 3 }
               ]
             }
             """
